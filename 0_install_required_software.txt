@@ -1,0 +1,60 @@
+Installation Packages Needed
+----------------------------
+boost
+1) Download the source at http://sourceforge.net/projects/boost/files/boost/1.50.0/
+( I tried but this doesn't work, therefore I download 1.53 from here. )
+
+2) Execute the shell script with "./bootstrap.sh" 
+( this step fails on me when I use 1.50 (.../build.sh command not found. Therefore I switch to 1.53 and it worked)
+( might have to do "sudo su" to run shell script )
+
+3) Next run the command "bjam install"
+( might need to download and compile bjam if you don't have it already )
+(http://www.boost.org/users/download/boost_jam_3_1_18.html)
+
+4) Tricky Step
+what's important after these steps is really 
+./boost/include (path to include)
+./libs ( path to lib )
+( this is kind of important, but they are probably not put in the right place )
+( see next section for continuation )
+
+vowpal_wabbit
+
+1) This is the official documentation
+https://github.com/JohnLangford/vowpal_wabbit/wiki/Tutorial
+
+2) Download vowpal wabbit from 
+git clone git://github.com/JohnLangford/vowpal_wabbit.git
+
+3) Key Step (modify make file)
+
+3-1)change all the BOOST_INCLUDE to something like this
+/Users/alexwchen/Downloads/boost_1_53_0/boost/include
+3-2)change BOOST_LIBRARY to something like this
+/Users/alexwchen/Downloads/boost_1_53_0/libs 
+3-3)if you run it like this, you will get errer complaining cant find -lboost_program_options-mt
+Solution:
+(seperate -l and boost_program_options-mt)
+(change all boost_program_options-mt to boost_program_options)
+
+same concepts goes to boost_serialization-mt, just get rid of -mt
+
+**This same modification might also have to do it in other Makefile that is called by the main guy (just read the error and find them, easy)**
+
+(WHY?)
+You can go into ./libs
+you will see program_options folder but not program_options-mt
+you will see serialization folder but not serialization-mt
+
+
+4)  Compile and cross your fingers
+cd vowpal_wabbit; make
+
+5) If it works thank god, now hope this work too
+make test
+( it did for me )
+
+
+
+
