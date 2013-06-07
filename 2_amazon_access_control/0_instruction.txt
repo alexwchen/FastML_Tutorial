@@ -1,0 +1,23 @@
+Amazon access control challenge
+===============================
+
+See [http://fastml.com/amazon-aspires-to-automate-access-control/](http://fastml.com/amazon-aspires-to-automate-access-control/) for description.
+
+	auc.py - compute AUC for a validation set
+	csv2vw.py - convert original CSV to VW format
+	vw2sub.py - convert VW predictions to a submission format
+	
+
+How To?
+csv2vw.py train.csv train.vw
+csv2vw.py test.csv test.vw
+
+vw -d train.vw -c -k -f model --loss_function logistic --passes 10 
+vw -t -d test.vw -i model -p p.txt
+
+vw2sub.py p.txt p_sub.txt
+
+
+
+
+	
