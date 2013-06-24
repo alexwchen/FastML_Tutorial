@@ -1,7 +1,7 @@
 Installation Packages Needed
 ----------------------------
 boost
-1) Download the source at http://sourceforge.net/projects/boost/files/boost/1.50.0/
+1) Download the source at http://sourceforge.net/projects/boost/files/boost/1.53.0/
 ( I tried but this doesn't work, therefore I download 1.53 from here. )
 
 2) Execute the shell script with "./bootstrap.sh" 
@@ -10,6 +10,7 @@ boost
 ( might have to do "sudo su" to run shell script )
 
 3) Next run the command "bjam install"
+b2 install
 ( might need to download and compile bjam if you don't have it already )
 (http://www.boost.org/users/download/boost_jam_3_1_18.html)
 
