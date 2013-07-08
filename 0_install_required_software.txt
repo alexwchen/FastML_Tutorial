@@ -1,5 +1,12 @@
 Installation Packages Needed
 ----------------------------
+
+###################################
+These information might be outdated, please just follow instruction on vw's github
+only come back to this if you get stuck
+###################################
+
+
 boost
 1) Download the source at http://sourceforge.net/projects/boost/files/boost/1.53.0/
 ( I tried but this doesn't work, therefore I download 1.53 from here. )
